@@ -4,6 +4,7 @@ const bodyParser = require('body-parser')
 const morgan = require('mongoose-morgan')
 const app = express()
 const authApi = require('./routes/auth.route')
+const apiFeedback = require('./routes/feedback.route')
 
 app.use(bodyParser.urlencoded({extended: false}))
 app.use(bodyParser.json())
@@ -13,5 +14,6 @@ app.use(morgan({
 
 app.use('/v2', apiProduct)
 app.use('/v2', authApi)
+app.use('/v2', apiFeedback)
 
 module.exports = app
